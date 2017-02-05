@@ -1,3 +1,4 @@
+//to test ci-build
 var coins = [200, 100, 50, 20, 10, 5, 2, 1];
 function getChange(totalPayable, cashPaid){
     var change = [],
