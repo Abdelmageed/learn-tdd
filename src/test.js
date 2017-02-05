@@ -1,3 +1,8 @@
+var QUnit = require('qunitjs');
+var test = QUnit.test;
+require('qunit-tap')(QUnit, console.log);
+var getChange = require('./change.js');
+
 test('getChange(1,1) should return []', function (assert) {
     var result = getChange(1, 1);
     var expected = [];
@@ -18,3 +23,5 @@ test('getChange(12, 400) should return [200, 100, 50, 20, 10, 5, 2, 1]', functio
     var expected = [200, 100, 50, 20, 10, 5, 2, 1];
     assert.deepEqual(result, expected);
 });
+
+QUnit.load();
