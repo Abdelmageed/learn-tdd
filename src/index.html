@@ -1,4 +1,5 @@
-<html>
+<!doctype html public "storage">
+ <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Vending Machine Change Calculator TDD Tutorial</title>
@@ -10,50 +11,15 @@
   <body style='margin: 0 1em;'>
     <div id='main'>
       <h1>Vending Machine <em>Change Calculator</em></h1>
-      <h3>Calculate the change (<em>coins</em>) to return to a customer when they buy something.</h2>
+      <h3>Calculate the change (<em>coins</em>) to return to a customer when they buy something.</h3>
     </div>
 
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     <!-- Load the QUnit Testing Framework from CDN - this is the important bit ... -->
     <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
-    <script>
-        var coins = [200, 100, 50, 20, 10, 5, 2, 1];
-        function getChange(totalPayable, cashPaid){
-            var change = [],
-                i = 0,
-                c = cashPaid - totalPayable;
-            while (c > 0){
-                while (c >= coins[i]){
-                    c -= coins[i];
-                    change.push(coins[i]);
-                }
-                i++;
-            }
-            return change;
-        }
-        
-      test('getChange(1,1) should return []', function(assert){
-          var result = getChange(1, 1);
-          var expected = [];
-          assert.deepEqual(result, expected);
-      })
-      test('getChange(215, 315) should return [50, 20, 10, 5]', function(assert){
-          var result = getChange(215, 300);
-          var expected = [50, 20, 10, 5];
-          assert.deepEqual(result, expected);
-      })
-      //114
-      test('getChange(486, 600) should return [100, 10, 2, 2]', function(assert){
-          var result = getChange(486, 600);
-          var expected = [100, 10, 2, 2];
-          assert.deepEqual(result, expected);
-      })
-      test('getChange(12, 400) should return [200, 100, 50, 20, 10, 5, 2, 1]', function(assert) {
-          var result = getChange(12, 400);
-          var expected = [200, 100, 50, 20, 10, 5, 2, 1];
-          assert.deepEqual(result, expected);
-});
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blanket.js/1.1.4/blanket.js"></script>
+    <script src="change.js" data-cover></script>
+    <script src="test.js"></script>
   </body>
 </html>
